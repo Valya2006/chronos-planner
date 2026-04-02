@@ -1,0 +1,48 @@
+.header-container {
+	display: flex;
+	justify-content: space-around;
+	position: relative;
+	align-items: center;
+	margin: 0;
+	padding: 0 30px;
+	height: 130px;
+	color: #FFF8F8;
+
+	font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header-container h1 {
+	font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+	position: absolute;
+	left: 0%;
+	font-size: 50px;
+	padding: 30px;
+
+}
+
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	width: 30em;
+	font-size: 25px;
+	margin-left: 150px;
+}
+
+.navigation a {
+	text-decoration: none;
+	color: #FFF8F8;
+	transition: all 0.2s ease;
+}
+
+.navigation a:hover {
+	color: #9018AE;
+}
+
+.navigation a.active {
+	color: #9018AE;
+	text-decoration: underline;
+}
