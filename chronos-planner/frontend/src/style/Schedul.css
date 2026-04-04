@@ -1,0 +1,61 @@
+.schedule-container {
+  display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	gap: 20px;
+}
+
+.pagination {
+	display: flex;
+	box-sizing: border-box;
+	position: relative;
+	grid-column: 2;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	background-color: #D6C8FF;
+	border-radius: 10px;
+	padding: 20px 0px;
+	width: 100%;
+
+}
+
+.pagination-link {
+    display: flex;
+		position: absolute;
+		right: 9%;
+		bottom: 15%;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.pagination-link:hover {
+    background-color: rgba(163, 163, 163, 0.149);
+    border-radius: 50%;
+}
+
+.pagination-link img {
+    box-shadow: none;
+    object-fit: cover;
+    height: auto;
+    width: 60%;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+
+.pagination p {
+	font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+	font-size: 20px;
+  font-style: normal;
+	color: #393939;
+	margin: 0;
+	padding: 0;
+
+}

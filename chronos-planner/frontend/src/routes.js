@@ -1,17 +1,22 @@
-import AuthPanel from './components/AuthPanel.js';
-import Schedule from './pages/Schedule.js'
-import Tracker from './pages/Tracker.js'
-import Analytics from './pages/Analytics.js'
-import ErrorPage from './pages/Errors/Errors.js';
+import Schedule from './pages/Schedule.js';
+import Tracker from './pages/Tracker.js';
+import Analytics from './pages/Analytics.js';
+import { hideLayout, showLayout } from './scripts/layout.js';
+import { setHeaderColor } from './components/Header.js';
+import ErrorPage from './pages/Errors/Errors.js'
+
 
 const routes = [
-	{ 'path': '/schedule', 'component': Schedule },
-	{ 'path': '/tracker', 'component': Tracker },
-	{ 'path': '/analytics', 'component': Analytics },
-	{ 'path': '/login', 'component': AuthPanel },
-	{ 'path': '/public', 'component': '' },
-	
+	{ 'path': '/schedule', 'component': Schedule},
+	{ 'path': '/tracker', 'component': Tracker},
+	{ 'path': '/analytics', 'component': Analytics},
 ]
+
+const pageColors = {
+	'/schedule': '#D6C8FF',
+	'/tracker': '#AECBEF',
+	'/analytics': '#FFB8A3',
+}
 
 const navigate = (pathname) => {
   for (const route of routes) {
@@ -22,9 +27,11 @@ const navigate = (pathname) => {
       return route.component
     }
   }
+	hideLayout() // убираем шапку и боковое меню со страницы
   return ErrorPage
 }
 
+// обработка ссылок навигации
 function updateActiveLink() {
   const currentPage = window.location.pathname;
   const links = document.querySelectorAll('.navigation a');
@@ -43,24 +50,29 @@ const handleLinkClick = (e) => {
   if (!link) return;
   
   const href = link.getAttribute('href');
-	console.log('🟢 DOM загружен, текущая страница:', href);
   if (href && (href.startsWith('/') && !href.startsWith('//'))) {
     e.preventDefault();
     window.history.pushState({}, '', href);
-    mountRoute();
-    updateActiveLink();
+		mountRoute();
   }
 };
+
 export const mountRoute = async () => {
   const href = (window.location.href).replace(/\/+$/, '')
   if (window.location.href.at(-1) === '/') history.replaceState({}, '', href)
-  const { pathname } = new URL(href)
+  const { pathname } = new URL(href);
+
+	showLayout() // возвращаем шапку и меню на страницу
+
+  // меняем цвет в зависимости от страницы
+  const color = pageColors[pathname] || '#D6C8FF';
+  setHeaderColor(color)
 
   const element = navigate(pathname)
-  const app = document.querySelector('#app')
-	app.innerHTML = ''
+  const mainContent = document.querySelector('#main-content')
+	mainContent.innerHTML = ''
 	const el = await element()
-  app.appendChild(el)
+  mainContent.appendChild(el)
 
 	updateActiveLink()
 }
@@ -68,10 +80,5 @@ export const mountRoute = async () => {
 document.addEventListener('click', handleLinkClick);
 
 window.addEventListener('popstate', () => {
-  mountRoute();
-  updateActiveLink();
-});
-
-document.addEventListener('DOMContentLoaded', () => {
   mountRoute();
 });

@@ -1,10 +1,11 @@
-import Header from '../components/Header.js'
+import TableSchedule from '../components/TableSchedule.js';
+import '../style/Schedul.css';
 
 export default () => {
 	const scheduleDiv = document.createElement('div');
-	scheduleDiv.innerHTML = `
-	  ${Header('#D6C8FF')}
-	`
+	scheduleDiv.classList.add('schedule-container')
+	scheduleDiv.innerHTML = `${TableSchedule()}`
+	
 
 	return scheduleDiv
 }
