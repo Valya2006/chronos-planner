@@ -3,7 +3,9 @@ import Tracker from './pages/Tracker.js';
 import Analytics from './pages/Analytics.js';
 import { hideLayout, showLayout } from './scripts/layout.js';
 import { setHeaderColor } from './components/Header.js';
-import ErrorPage from './pages/Errors/Errors.js'
+import ErrorPage from './pages/Errors/Errors.js';
+
+import data from './scripts/getWeekDates.js';
 
 
 const routes = [
@@ -61,7 +63,7 @@ export const mountRoute = async () => {
   const href = (window.location.href).replace(/\/+$/, '')
   if (window.location.href.at(-1) === '/') history.replaceState({}, '', href)
   const { pathname } = new URL(href);
-
+  console.log(`Вызов страницы ${pathname}`)
 	showLayout() // возвращаем шапку и меню на страницу
 
   // меняем цвет в зависимости от страницы
@@ -73,7 +75,7 @@ export const mountRoute = async () => {
 	mainContent.innerHTML = ''
 	const el = await element()
   mainContent.appendChild(el)
-
+	
 	updateActiveLink()
 }
 

@@ -1,61 +1,65 @@
 .schedule-container {
   display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 400px);
+	grid-template-rows: 80px repeat(auto-fill, minmax(50px, auto));
 	gap: 20px;
 }
 
-.pagination {
-	display: flex;
-	box-sizing: border-box;
-	position: relative;
-	grid-column: 2;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-	background-color: #D6C8FF;
-	border-radius: 10px;
-	padding: 20px 0px;
-	width: 100%;
+.table-container {
+	justify-self: center;
+  display: flex;
+	flex-direction: column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  background-color: #D6C8FF;
+  width: fit-content; 
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.simple-table {
+  border-collapse: collapse;
+  background-color: aliceblue;
+  margin: 0;
+  width: 350px;
 
 }
 
-.pagination-link {
-    display: flex;
-		position: absolute;
-		right: 9%;
-		bottom: 15%;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-    text-decoration: none;
-}
-
-.pagination-link:hover {
-    background-color: rgba(163, 163, 163, 0.149);
-    border-radius: 50%;
-}
-
-.pagination-link img {
-    box-shadow: none;
-    object-fit: cover;
-    height: auto;
-    width: 60%;
-    transition: all 0.2s ease;
-    pointer-events: none;
-}
-
-
-.pagination p {
-	font-family: "Dela Gothic One", sans-serif;
-  font-weight: 400;
-	font-size: 20px;
-  font-style: normal;
-	color: #393939;
+.simple-table td {
+	border: 1px solid #ccc;
 	margin: 0;
-	padding: 0;
+	padding: 5px 5px 5px 10px;
+  text-align: left;
+}
 
+.simple-table td:first-child {
+	width: 110px;
+}
+
+.simple-table tr {
+	border: 1px solid #ccc;
+	padding: 0;
+}
+
+.date-container {
+	box-sizing: border-box;
+	background-color: aliceblue;
+	width: 100%;
+	border-radius: 10px 10px 0 0;
+	border: 1px solid #ccc;
+  border-bottom: none; 
+	text-align: center;
+	padding: 8px;
+}
+
+.date-container .day-week {
+  font-family: sans-serif;
+	font-weight: bold;
+}
+
+.date-container .date {
+	font-family: "Charmonman", cursive;
+  font-weight: 800;
+  font-style: normal;
 }

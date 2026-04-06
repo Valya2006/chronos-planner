@@ -16,7 +16,11 @@ export default () => {
 
 export function setHeaderColor(color) {
   const header = document.querySelector('.header-container');
+	const pagination = document.querySelector('.pagination')
   if (header) {
     header.style.backgroundColor = color;
-  }
+  } 
+	if (pagination) {
+		pagination.style.backgroundColor = color;
+	}
 }
