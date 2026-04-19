@@ -1,5 +1,5 @@
-import Pagination from '../components/Pagination.js';
-import '../style/Tracker.css';
+import Pagination from '../../components/Pagination.js';
+import './Tracker.css';
 
 export default () => {
 	const trackerDiv = document.createElement('div');

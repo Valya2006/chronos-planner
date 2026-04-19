@@ -1,0 +1,3 @@
+const saveData = (key, value) => {
+	
+}

@@ -1,5 +1,5 @@
-import Pagination from '../components/Pagination.js';
-import '../style/Analitics.css';
+import Pagination from '../../components/Pagination.js';
+import './Analitics.css';
 
 export default () => {
 	const analiticsDiv = document.createElement('div');

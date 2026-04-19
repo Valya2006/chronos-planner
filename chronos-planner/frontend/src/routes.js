@@ -1,11 +1,9 @@
-import Schedule from './pages/Schedule.js';
-import Tracker from './pages/Tracker.js';
-import Analytics from './pages/Analytics.js';
+import Schedule from './pages/Schedule/Schedule.js';
+import Tracker from './pages/Tracker/Tracker.js';
+import Analytics from './pages/Analytics/Analytics.js';
 import { hideLayout, showLayout } from './scripts/layout.js';
 import { setHeaderColor } from './components/Header.js';
 import ErrorPage from './pages/Errors/Errors.js';
-
-import data from './scripts/getWeekDates.js';
 
 
 const routes = [
