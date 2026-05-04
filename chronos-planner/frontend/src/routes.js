@@ -7,6 +7,10 @@ import ErrorPage from './pages/Errors/Errors.js';
 
 
 const routes = [
+	{ 'path': '/', 'component': () => {
+		window.location.href = '/schedule';
+		return null
+	}},
 	{ 'path': '/schedule', 'component': Schedule},
 	{ 'path': '/tracker', 'component': Tracker},
 	{ 'path': '/analytics', 'component': Analytics},

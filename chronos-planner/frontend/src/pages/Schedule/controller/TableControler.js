@@ -114,7 +114,7 @@ export class Table {
   editRow(item) {
     if (!(item.tagName === 'INPUT')) {
       this.deleteInput()
-      const currentRows = item.closest('tr')
+			const currentRows = item.closest('tr')
       currentRows.classList.add('focus-tr')
       const td = currentRows.querySelectorAll('td')
       td.forEach((t) => {
@@ -130,13 +130,18 @@ export class Table {
         td.textContent = input.value || '';
         data.push(input.value || '')
       })
-      this.deleteInput();
       const focusedRow = this.element.querySelector('.focus-tr');
+			this.deleteRows(focusedRow)
       if (focusedRow) {
         focusedRow.classList.remove('focus-tr');
       }
     }
     this.save()
   }
+
+	deleteRows () {
+		const span = document.createElement('span')
+		span.textContent = 'x'
+	}
 
 }
